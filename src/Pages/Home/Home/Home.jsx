@@ -1,9 +1,8 @@
+import Navbar from "../../Shared/Header/Navbar";
 
 const Home = () => {
     return (
-        <div>
-            
-        </div>
+        <Navbar />
     );
 };
 

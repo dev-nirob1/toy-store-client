@@ -1,10 +1,15 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
+import Navbar from './Pages/Shared/Header/Navbar'
+import Footer from './Pages/Shared/Footer/Footer'
 
 function App() {
 
   return (
     <div>
-      <h2 className='text-center text-red-500 font-bold'>hello world</h2>
+      <Navbar></Navbar>
+      <Outlet></Outlet>
+      <Footer></Footer>
     </div>
   )
 }
