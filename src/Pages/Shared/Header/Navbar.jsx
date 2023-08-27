@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
 
- const navItems = <>
-    <li><Link className=" hover:text-gray-200 border hover:border border-[#26B8A5]" to="/">Home</Link></li>
-    <li><Link className=" hover:text-gray-200 border hover:border border-[#26B8A5]" to="/about">About</Link></li>
-    <li><Link className=" hover:text-gray-200 border hover:border border-[#26B8A5]" to="/blog">Blog</Link></li>
-    <li><Link className=" hover:text-gray-200 border hover:border border-[#26B8A5]" to="/addToy">Add Toy</Link></li>
-    <li><Link className=" hover:text-gray-200 border hover:border border-[#26B8A5]" to="/allToy">Add Toy</Link></li>
+  const navItems = <>
+    <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/">Home</Link></li>
+    <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/about">About</Link></li>
+    <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/blog">Blog</Link></li>
+    <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/addToy">Add Toy</Link></li>
+    <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/allToy">Add Toy</Link></li>
   </>
 
   return (
@@ -26,7 +26,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-lg text-white font-semibold">
-         {navItems}
+          {navItems}
         </ul>
       </div>
       <div className="navbar-end">
