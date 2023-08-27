@@ -1,15 +1,29 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Provider/AuthProvider";
 
 
 const Navbar = () => {
+
+  const { user, logOut } = useContext(AuthContext)
 
   const navItems = <>
     <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/">Home</Link></li>
     <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/about">About</Link></li>
     <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/blog">Blog</Link></li>
-    <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/addToy">Add Toy</Link></li>
-    <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/allToy">Add Toy</Link></li>
+    {user?.email &&
+      <>
+        <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/addToy">Add Toy</Link></li>
+        <li><Link className=" hover:text-gray-200 border hover:border bg-[#26B8A5]" to="/allToy">All Toy</Link></li>
+        </>
+    }
   </>
+
+  const handleLogout = () => {
+    logOut()
+      .then(() => { })
+      .catch(error => console.log(error))
+  }
 
   return (
     <div className="navbar bg-[#342F46]">
@@ -30,7 +44,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login" className="btn">Login</Link>
+
+        {
+          user ?
+            <button className="btn" onClick={handleLogout}>Logout</button>
+            :
+            <Link className="btn" to="/login"><button>login</button></Link>
+        }
       </div>
     </div>
   );

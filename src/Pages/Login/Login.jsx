@@ -1,12 +1,36 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
+
+    const { login } = useContext(AuthContext)
+    const location = useLocation();
+    const Navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/";
+
+
     const handleLogin = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password)
+
+        login(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+
+                if (loggedUser) {
+                    alert('Login SuccessFull')
+                    Navigate(from, {replace: true})
+                }
+                console.log(loggedUser)
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
     return (
         <div className="flex h-screen bg-gradient-to-r from-gray-500 to-gray-800">
@@ -45,15 +69,15 @@ const Login = () => {
                             />
                         </div>
                         <input type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline" value="Login" />
-                    <button
-                        className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline mt-5"
-                        type="button"
-                    >
-                        Sign in with Google
-                    </button>
+                        <button
+                            className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline mt-5"
+                            type="button"
+                        >
+                            Sign in with Google
+                        </button>
                     </form>
                     <div className="text-center mt-4">
-                    <span>Don`t have an account? <Link className="text-blue-500" to="/register">Register</Link></span>
+                        <span>Don`t have an account? <Link className="text-blue-500" to="/register">Register</Link></span>
                         {/* <Link
                             to="/register"
                             className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
