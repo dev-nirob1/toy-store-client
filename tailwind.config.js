@@ -6,8 +6,6 @@ export default {
   theme: {
     extend: {},
   },
-  plugins: [
-    require('flowbite/plugin')
-]
+  plugins: [require("daisyui")],
 }
 
