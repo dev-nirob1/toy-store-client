@@ -1,0 +1,34 @@
+[
+      {
+        "id": "review1",
+        "customer_image": "path/to/customer1.jpg",
+        "customer_name": "Alex Parker",
+        "review_text": "These car toys are fantastic! My kids can't get enough of them. The attention to detail is impressive, and they provide endless hours of imaginative play."
+      },
+      {
+        "id": "review2",
+        "customer_image": "path/to/customer2.jpg",
+        "customer_name": "Emily Turner",
+        "review_text": "As a collector, I'm always on the lookout for unique car toys. This website has exceeded my expectations. The selection is great, and the quality of the models is outstanding."
+      },
+      {
+        "id": "review3",
+        "customer_image": "path/to/customer3.jpg",
+        "customer_name": "Daniel Carter",
+        "review_text": "I bought a set of these car toys for my nephew's birthday, and he absolutely loves them. The cars are durable, and the variety in the collection keeps him engaged."
+      },
+      {
+        "id": "review4",
+        "customer_image": "path/to/customer4.jpg",
+        "customer_name": "Sophia Martinez",
+        "review_text": "I'm amazed by how realistic these car toys look. My son is a car enthusiast, and these toys have sparked his passion even more. This website is a dream come true for him."
+      },
+      {
+        "id": "review5",
+        "customer_image": "path/to/customer5.jpg",
+        "customer_name": "Liam Johnson",
+        "review_text": "The car toys I ordered arrived on time and in perfect condition. The ordering process was smooth, and the customer service was responsive and helpful. Highly recommended!"
+      }
+    ]
+
+  
