@@ -8,6 +8,7 @@ const PrivateRoutes = ({ children }) => {
         return <span className="loading loading-bars loading-lg"></span>
     }
     if (user?.email) {
+        
         return children;
     }
     return <Navigate to="/login" replace />;
