@@ -77,7 +77,8 @@ const AddToy = () => {
 
                     <div className="mb-4">
                         <label htmlFor="ratings" className="block text-sm font-medium mb-1">Ratings</label>
-                        <input type="number" name="ratings" className="w-full p-2 border rounded" placeholder="rating out of 5" />
+                        <input type="number" name="ratings" className="w-full p-2 border rounded" placeholder="rating out of 5"
+                            step="0.1" />
                     </div>
 
                     <div className="mb-4">

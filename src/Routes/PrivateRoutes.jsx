@@ -11,6 +11,7 @@ const PrivateRoutes = ({ children }) => {
         
         return children;
     }
+
     return <Navigate to="/login" replace />;
 };
 

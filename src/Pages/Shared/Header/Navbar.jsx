@@ -14,7 +14,7 @@ const Navbar = () => {
     {user?.email &&
       <>
         <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/addToy">Add Toys</Link></li>
-        <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/myToys">My Toys</Link></li>
+        <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/my-toys">My Toys</Link></li>
         <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/allToys">All Toys</Link></li>
       </>
     }
