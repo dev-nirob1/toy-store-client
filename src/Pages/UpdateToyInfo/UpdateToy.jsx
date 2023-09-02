@@ -37,6 +37,7 @@ const UpdateToy = () => {
                             placeholder="Enter the updated price"
                         />
                     </div>
+                  
                     <div className="mb-4">
                         <label htmlFor="availableQuantity" className="block text-gray-700 font-bold mb-2">
                             Available Quantity:
