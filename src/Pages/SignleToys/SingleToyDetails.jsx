@@ -3,7 +3,7 @@ import { useLoaderData } from "react-router-dom";
 
 const SingleToy = () => {
     const singleToy = useLoaderData();
-    const { name, category, price, quantity, description, toyURL, ratings } = singleToy;
+    const { toyName, category, price, quantity, description, toyURL, ratings } = singleToy;
     const [count, setCount] = useState(0);
 
     const decrementCount = () => {
@@ -46,7 +46,7 @@ const SingleToy = () => {
                 <button className="px-4 py-2 btn-block bg-blue-500 text-white rounded hover:bg-blue-600">Order Now</button>
             </div>
             <div className="col-span-4 bg-white rounded-lg shadow-md p-4">
-                <h2 className="text-3xl font-semibold">{name}</h2>
+                <h2 className="text-3xl font-semibold">{toyName}</h2>
                 <p className="text-gray-500">{ratings}</p>
                 <p className="text-gray-600">{category}</p>
                 <h2 className="text-2xl font-semibold mt-4">${price}</h2>

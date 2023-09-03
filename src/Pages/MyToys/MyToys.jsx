@@ -59,7 +59,6 @@ const MyToys = () => {
                     <thead>
                         <tr className="bg-gray-700 text-white text-center">
                             <th className="p-3">ID</th>
-                            <th className="p-3">Seller Name</th>
                             <th className="p-3">Toy Name</th>
                             <th className="p-3">Sub-Category</th>
                             <th className="p-3">Price</th>
