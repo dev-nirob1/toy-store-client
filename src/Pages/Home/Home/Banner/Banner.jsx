@@ -21,7 +21,7 @@ const Banner = () => {
                 slidesPerView={1}
                 spaceBetween={30}
                 autoplay={{
-                    delay: 2000,
+                    delay: 2500,
                     disableOnInteraction: false,
                 }}
                 loop={true}
@@ -38,7 +38,7 @@ const Banner = () => {
                         <div className='relative w-full'>
                             <img className='w-full h-screen' src={singleSlide.image} alt="banner image" />
                             <div className='absolute bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] h-full w-full top-0 left-0 text-white flex items-center pl-24'>
-                                <div className='space-y-5 w-1/2'>
+                                <div data-aos="fade-up" data-aos-duration="1000" className='space-y-5 w-1/2'>
                                     <h3 className='text-5xl font-semibold text-gray-100'>{singleSlide.title}</h3>
                                     <p className='text-lg text-gray-100'>{singleSlide.description}</p>
 

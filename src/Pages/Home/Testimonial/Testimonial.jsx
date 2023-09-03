@@ -12,9 +12,8 @@ const Testimonial = () => {
     }, [])
 
     return (
-        <div className="my-10 container mx-auto bg-[#3A454D]">
-            <h2 data-aos="fade-up"
-                data-aos-duration="1000" className="text-center text-gray-100 text-4xl font-semibold py-10">Customer Review</h2>
+        <div className="my-10 container mx-auto bg-gray-50">
+            <h2 data-aos="fade-up" data-aos-duration="1000" className="text-center text-gray-900 text-4xl font-semibold py-10">Customer Review</h2>
 
                 <Marquee>
                     <div className="grid grid-cols-5 my-10">

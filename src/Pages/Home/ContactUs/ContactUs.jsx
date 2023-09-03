@@ -22,10 +22,10 @@ const ContactUs = () => {
                         </Marker>
                     </MapContainer>
                 </div>
+                
                 <div className="col-span-2">
                     <div className="bg-gray-50 shadow p-4 rounded shadow">
                         <h3 className="text-xl font-semibold mb-4">Contact Form</h3>
-                        {/* Your contact form goes here */}
                         <form>
                             <div className="mb-4">
                                 <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
