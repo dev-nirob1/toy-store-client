@@ -4,7 +4,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext)
+    const { login, googleLogin } = useContext(AuthContext)
     const location = useLocation();
     const Navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
@@ -23,13 +23,28 @@ const Login = () => {
 
                 if (loggedUser) {
                     alert('Login SuccessFull')
-                    Navigate(from, {replace: true})
+                    Navigate(from, { replace: true })
                 }
                 console.log(loggedUser)
 
             })
             .catch(error => {
                 console.log(error)
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogin()
+            .then(result => {
+                const user = result.user
+                if (user) {
+                    alert('Login SuccessFull')
+                    Navigate(from, { replace: true })
+                }
+                // console.log(user)
+            })
+            .catch(error => {
+                console.log(error.message)
             })
     }
     return (
@@ -72,6 +87,7 @@ const Login = () => {
                         <button
                             className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline mt-5"
                             type="button"
+                            onClick={handleGoogleLogin}
                         >
                             Sign in with Google
                         </button>

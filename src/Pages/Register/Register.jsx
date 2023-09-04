@@ -5,7 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 
 const Register = () => {
 
-    const { createUser } = useContext(AuthContext);
+    const { createUser, googleLogin } = useContext(AuthContext);
 
     const handleRegister = event => {
         event.preventDefault()
@@ -27,8 +27,20 @@ const Register = () => {
         .catch(error => {
             console.log(error)
         })
-        
     }
+    const handleGoogleLogin = ()=>{
+        googleLogin()
+        .then(result => {
+            const user = result.user;
+            if(user){
+                alert('Login Succesfull')
+            }
+        })
+        .catch(error => {
+            console.log(error.message)
+        })
+    }
+
     return (
         <div className="flex justify-center items-center">
             <div className="max-w-md w-full bg-white p-6 shadow-lg rounded-lg">
@@ -90,6 +102,7 @@ const Register = () => {
                         <button
                             className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline mt-5"
                             type="button"
+                            onClick={handleGoogleLogin}
                         >
                             Sign in with Google
                         </button>

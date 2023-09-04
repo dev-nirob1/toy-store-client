@@ -24,7 +24,7 @@ const ContactUs = () => {
                 </div>
                 
                 <div className="col-span-2">
-                    <div className="bg-gray-50 shadow p-4 rounded shadow">
+                    <div className="bg-gray-50 shadow p-4 rounded">
                         <h3 className="text-xl font-semibold mb-4">Contact Form</h3>
                         <form>
                             <div className="mb-4">

@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { Link } from "react-router-dom";
 import MyToysData from "./MyToysData";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
     const [myToys, setMyToys] = useState([])
+    // const [remainings, setRemainings] = useState(myToys)
     const url = `http://localhost:5000/my-toys?email=${user?.email}`
 
     useEffect(() => {
@@ -16,33 +17,21 @@ const MyToys = () => {
     }, [url])
 
     const handleDelete = _id => {
-        Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+
+        fetch(`http://localhost:5000/toys/${_id}`, {
+            method: 'DELETE'
         })
-            .then((result) => {
-                if (result.isConfirmed) {
-                    fetch(`http://localhost:5000/toys/${_id}`, {
-                        method: 'DELETE'
-                    })
-                        .then(res => res.json())
-                        .then(data => {
-                            if (data.deletedCount > 0) {
-                                console.log(data)
-                                Swal.fire(
-                                    'Deleted!',
-                                    'Your file has been deleted.',
-                                    'success'
-                                )
-                            }
-                        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                if(data.deletedCount > 0) {
+                    alert('deleted ')
+                    const remainingsToys = myToys.filter(toys => toys._id !== _id)
+                    setMyToys(remainingsToys)
                 }
             })
+
+
     }
 
 
