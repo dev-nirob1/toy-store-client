@@ -69,6 +69,7 @@ const Register = () => {
                 if (user) {
                     alert('Login Succesfull')
                     setSuccess('Registration SuccessFull')
+                    navigate('/')
                 }
             })
             .catch(error => {
@@ -143,26 +144,11 @@ const Register = () => {
                         >
                             Sign in with Google
                         </button>
-                        {/* <span>Or register with: </span>
-                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-2 rounded focus:outline-none focus:shadow-outline">
-                        Google
-                    </button> */}
+
                     </div>
                 </form>
                 <div className="mt-4 text-center">
                     <span>Already have an account? <Link className="text-blue-500" to="/login">Login</Link></span>
-                </div>
-                <div className="mt-4 text-center">
-                    {/* <button
-                        className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline mt-5"
-                        type="button"
-                    >
-                        Sign in with Google
-                    </button> */}
-                    {/* <span>Or register with: </span>
-                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 mx-2 rounded focus:outline-none focus:shadow-outline">
-                        Google
-                    </button> */}
                 </div>
             </div>
         </div>

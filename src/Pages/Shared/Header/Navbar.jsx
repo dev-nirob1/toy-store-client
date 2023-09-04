@@ -6,18 +6,14 @@ import { AuthContext } from "../../../Provider/AuthProvider";
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext)
-
+  console.log(user)
   const navItems = <>
     <li><Link className=" text-gray-200 border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/">Home</Link></li>
     <li><Link className=" text-gray-200 border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/about">About</Link></li>
     <li><Link className=" text-gray-200 border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/blog">Blog</Link></li>
-    {user?.email &&
-      <>
-        <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/addToy">Add Toys</Link></li>
-        <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/my-toys">My Toys</Link></li>
-        <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/allToys">All Toys</Link></li>
-      </>
-    }
+    <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/addToy">Add Toys</Link></li>
+    <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/my-toys">My Toys</Link></li>
+    <li><Link className=" text-gray-200  border md:border-none py-2 md:py-0 my-2 md:my-0 hover:text-gray-300" to="/allToys">All Toys</Link></li>
   </>
 
   const handleLogout = () => {
@@ -27,7 +23,8 @@ const Navbar = () => {
   }
 
   return (
-    <div className="navbar bg-[#342F46]">
+    <div className="bg-[#342F46]">
+      <div className="navbar container mx-auto">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="text-[#26B8A5] lg:hidden">
@@ -48,11 +45,19 @@ const Navbar = () => {
 
         {
           user ?
-            <button className="btn" onClick={handleLogout}>Logout</button>
+            <>
+              <img src={user && user.photoURL} className="w-14 h-14 rounded-full mr-5" title={user.displayName} alt="profile image" />
+              <button className="px-8 py-3 bg-red-500 text-lg font-semibold hover:bg-red-700 text-gray-100 rounded-lg" onClick={handleLogout}>Logout</button>
+              {/* <button className="px-8 py-3 bg-[#00A65A] text-[#342F46] text-lg font-semibold hover:bg-[#CCCCCC] hover:text-white rounded-lg" onClick={handleLogout}>Logout</button> */}
+            </>
             :
-            <Link className="btn" to="/login"><button>login</button></Link>
+            // <Link className="bg-[#2ECC71] hover:bg-[] text-white px-8 py-3 font-semibold text-lg rounded-lg " to="/login"><button>login</button></Link>
+            <Link className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 font-semibold text-lg rounded-lg " to="/login"><button>login</button></Link>
+
+
         }
       </div>
+    </div>
     </div>
   );
 };

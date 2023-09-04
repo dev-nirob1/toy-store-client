@@ -4,20 +4,20 @@
         "description": "Experience the thrill of high-speed racing with our fantastic collection of toy racing cars. From sleek designs to lightning-fast speeds, our racing cars are built for adrenaline-pumping adventures on the racetrack. Get ready for the ultimate racing experience with Toy Cars!",
         "image": "https://images.unsplash.com/photo-1531693251400-38df35776dc7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
         "buttonText": "Shop Now",
-        "buttonLink": "/racing"
+        "buttonLink": "Racing"
     },
     {
         "title": "Discover Action-Packed Adventures",
         "description": "Unleash your inner adventurer with our action-packed toy collection. Dive into a world of excitement, challenges, and endless fun. Whether you're battling villains or embarking on epic quests, Toy Cars has the adventure toys you need!",
         "image": "https://images.unsplash.com/photo-1594787317357-dcda50fd1d78?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
         "buttonText": "View Collection",
-        "buttonLink": "/adventure"
+        "buttonLink": "Adventure"
     },
     {
         "title": "Puzzle Your Way to Fun",
         "description": "Challenge your mind and have a blast with our captivating puzzles collection. From brain-teasers to jigsaw puzzles, there's something for everyone. Enjoy hours of entertainment and sharpen your problem-solving skills with Toy Cars puzzles!",
         "image": "https://images.unsplash.com/photo-1587292818536-5a404595dd36?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1646&q=80",
         "buttonText": "Explore Puzzles",
-        "buttonLink": "/puzzles"
+        "buttonLink": "Puzzles"
     }
 ]
