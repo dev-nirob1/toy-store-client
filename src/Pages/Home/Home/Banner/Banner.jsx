@@ -9,9 +9,9 @@ import 'swiper/css/navigation';
 import { useEffect, useState } from 'react';
 
 const Banner = () => {
-    const [siderInfo, setSliderInfo] = useState([])
+    const [sliderInfo, setSliderInfo] = useState([])
     useEffect(() => {
-        fetch('sliderinfo.json')
+        fetch('http://localhost:5000/sliderInfo')
             .then(res => res.json())
             .then(data => setSliderInfo(data))
     }, [])
@@ -34,7 +34,7 @@ const Banner = () => {
             >
 
                 {
-                    siderInfo.map((singleSlide, i) => <SwiperSlide key={i}>
+                    sliderInfo.map((singleSlide, i) => <SwiperSlide key={i}>
                         <div className='relative w-full h-[500px] md:h-screen'>
                             <img className='w-full h-full' src={singleSlide.image} alt="banner image" />
                             <div className='absolute bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] h-full w-full top-0 left-0 text-white flex items-center px-9 md:pl-24 '>
