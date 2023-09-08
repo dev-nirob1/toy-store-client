@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle";
 
 const SingleToy = () => {
     const singleToy = useLoaderData();
     const { toyName, category, price, quantity, description, toyURL, ratings } = singleToy;
     console.log(singleToy)
     const [count, setCount] = useState(0);
+    useTitle(`${toyName} Details`)
 
     const decrementCount = () => {
         if (count > 0) {

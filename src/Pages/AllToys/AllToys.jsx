@@ -1,9 +1,11 @@
 import { Link, useLoaderData } from 'react-router-dom';
 import ToysData from './ToysData';
+import useTitle from '../../Hooks/useTitle';
 
 const AllToys = () => {
+    useTitle('All Toys')
     const toysData = useLoaderData()
-    console.log(toysData)
+    // console.log(toysData)
     return (
         <div>
             <h3 className='font-semibold text-center text-4xl py-5 bg-green-400'>Toy Management System</h3>

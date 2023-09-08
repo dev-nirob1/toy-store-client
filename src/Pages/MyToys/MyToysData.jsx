@@ -1,11 +1,13 @@
 import { Link } from "react-router-dom";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
+import useTitle from "../../Hooks/useTitle";
 
 const MyToysData = ({ myToy, index, handleDelete }) => {
+    useTitle('My Toys')
     const {_id, toyName, price, category, quantity } = myToy;
 
     return (
-        <tbody>
+
         <tr className="border-b">
             <td className='text-lg p-3'>{index + 1}</td>
             <td className='text-lg p-3'>{toyName}</td>
@@ -17,7 +19,6 @@ const MyToysData = ({ myToy, index, handleDelete }) => {
                 <button onClick={() => handleDelete(_id)}><FaTrashAlt className="text-2xl" title="Delete Toy" /></button>
             </td>
         </tr>
-    </tbody>
     
     );
 };

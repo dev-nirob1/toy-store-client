@@ -8,6 +8,7 @@ import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import SingleToyDetails from "../Pages/SignleToys/SingleToyDetails";
 import UpdateToy from "../Pages/UpdateToyInfo/UpdateToy";
+import Blog from "../Pages/Blog/Blog";
 
 const router = createBrowserRouter([
     {
@@ -29,11 +30,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/blog",
-                element: <Register />
-            },
-            {
-                path: "/about",
-                element: <Register />
+                element: <Blog />
             },
             {
                 path: "/addToy",
@@ -42,7 +39,7 @@ const router = createBrowserRouter([
             {
                 path: "/allToys",
                 element: <AllToys />,
-                loader: () => fetch('http://localhost:5000/toys')
+                loader: () => fetch('https://toy-store-server-blond.vercel.app/toys')
             },
             {
                 path: "/my-toys",
@@ -51,12 +48,12 @@ const router = createBrowserRouter([
             {
                 path: "/toy-details/:id",
                 element: <SingleToyDetails />,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({ params }) => fetch(`https://toy-store-server-blond.vercel.app/toys/${params.id}`)
             },
             {
                 path: "/update/:id",
                 element: <UpdateToy />,
-                loader: ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+                loader: ({ params }) => fetch(`https://toy-store-server-blond.vercel.app/toys/${params.id}`)
             },
         ]
     },

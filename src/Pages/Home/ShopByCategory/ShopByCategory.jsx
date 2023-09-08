@@ -9,7 +9,7 @@ const ShopByCategory = () => {
     const [activeTab, setActiveTab] = useState('Racing_Cars')
     const [categoryData, SetCategoryData] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/toys/category/${activeTab}`)
+        fetch(`https://toy-store-server-blond.vercel.app/toys/category/${activeTab}`)
             .then(res => res.json())
             .then(data => SetCategoryData(data))
     }, [activeTab])

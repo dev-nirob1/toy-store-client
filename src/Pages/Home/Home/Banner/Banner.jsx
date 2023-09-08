@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react';
 const Banner = () => {
     const [sliderInfo, setSliderInfo] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/sliderInfo')
+        fetch('https://toy-store-server-blond.vercel.app/sliderInfo')
             .then(res => res.json())
             .then(data => setSliderInfo(data))
     }, [])

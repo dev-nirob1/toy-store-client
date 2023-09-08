@@ -1,7 +1,10 @@
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../Hooks/useTitle";
 
 const UpdateToy = () => {
     const toyInfo = useLoaderData()
+    useTitle(`Update Info of ${toyInfo.toyName}`)
+
     const handleUpdateToy = event => {
         event.preventDefault();
         const form = event.target;
@@ -10,8 +13,7 @@ const UpdateToy = () => {
         const description = form.description.value;
         const updatedInfo = { price, quantity, description }
         console.log(updatedInfo)
-
-        fetch(`http://localhost:5000/update/${toyInfo._id}`, {
+        fetch(`https://toy-store-server-blond.vercel.app/update/${toyInfo._id}`, {
             method: 'PATCH',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(updatedInfo)

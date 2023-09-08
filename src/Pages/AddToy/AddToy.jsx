@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
+import useTitle from "../../Hooks/useTitle";
 
 
 const AddToy = () => {
-
+    useTitle('Add Toy')
     const { user } = useContext(AuthContext)
 
     const handleAddToy = event => {
@@ -30,7 +31,7 @@ const AddToy = () => {
 
         const addToys = { name, email, toyName, toyURL, category, price, ratings, quantity, description }
 
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-store-server-blond.vercel.app/toys', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
