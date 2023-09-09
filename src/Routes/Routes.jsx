@@ -10,12 +10,13 @@ import SingleToyDetails from "../Pages/SignleToys/SingleToyDetails";
 import UpdateToy from "../Pages/UpdateToyInfo/UpdateToy";
 import Blog from "../Pages/Blog/Blog";
 import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        //   errorElement: <
+        errorElement: <ErrorPage />,
         children: [
             {
                 path: "/",
