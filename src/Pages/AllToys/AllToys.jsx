@@ -1,20 +1,15 @@
-import { Link, useLoaderData } from 'react-router-dom';
+import {useLoaderData } from 'react-router-dom';
 import ToysData from './ToysData';
 import useTitle from '../../Hooks/useTitle';
 
 const AllToys = () => {
     useTitle('All Toys')
     const toysData = useLoaderData()
-    // console.log(toysData)
     return (
         <div>
-            <h3 className='font-semibold text-center text-4xl py-5 bg-green-400'>Toy Management System</h3>
-            <h3 className='font-semibold text-center text-4xl py-5 bg-purple-400'>All Toys</h3>
-
-            <div className='w-3/4 mx-auto my-20 border p-10'>
-                <Link className='px-5 border py-3 font-medium text-lg text-purple-500' to="/addToy">New User</Link>
-
-                <table className="border-collapse border w-full mt-10 text-center">
+            <div className='w-3/4 mx-auto my-10 border p-10 mt-2'>
+                <h3 className='font-semibold text-center text-4xl mb-5 py-5 bg-purple-400'>All Toys</h3>
+                <table className="border-collapse border w-full text-center">
 
                     <thead>
                         <tr className="bg-gray-700 text-white text-center">

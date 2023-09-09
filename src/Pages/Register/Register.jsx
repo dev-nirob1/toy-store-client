@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useTitle from "../../Hooks/useTitle";
+import { ToastContainer, toast } from "react-toastify";
 
 
 const Register = () => {
@@ -11,7 +12,9 @@ const Register = () => {
     const { createUser, googleLogin } = useContext(AuthContext);
     const regex = /^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{6,}$/;
     const urlValidation = /^(ftp|http|https):\/\/[^ "]+$/;
-    const navigate = useNavigate()
+    const location = useLocation();
+    const navigate = useNavigate();
+    let from = location.state?.from?.pathname || "/";
 
     const handleRegister = event => {
         event.preventDefault()
@@ -57,7 +60,6 @@ const Register = () => {
                 }
                 form.reset()
                 navigate('/')
-                console.log(newUser)
             })
             .catch(error => {
                 console.log(error)
@@ -68,9 +70,9 @@ const Register = () => {
             .then(result => {
                 const user = result.user;
                 if (user) {
-                    alert('Login Succesfull')
+                    toast.success('Registration Succesfull')
                     setSuccess('Registration SuccessFull')
-                    navigate('/')
+                    navigate(from, { replace: true })
                 }
             })
             .catch(error => {
@@ -151,6 +153,7 @@ const Register = () => {
                 <div className="mt-4 text-center">
                     <span>Already have an account? <Link className="text-blue-500" to="/login">Login</Link></span>
                 </div>
+                <ToastContainer/>
             </div>
         </div>
     );

@@ -8,13 +8,13 @@ import Banner from "./Banner/Banner";
 const Home = () => {
     useTitle('Home')
     return (
-        <div>
-            <Banner></Banner>
-            <Gallery></Gallery>
-            <ShopByCategory></ShopByCategory>
-            <Testimonial></Testimonial>
-            <ContactUs></ContactUs>
-        </div>
+            <div>
+                <Banner></Banner>
+                <Gallery></Gallery>
+                <ShopByCategory></ShopByCategory>
+                <Testimonial></Testimonial>
+                <ContactUs></ContactUs>
+            </div>
     );
 };
 

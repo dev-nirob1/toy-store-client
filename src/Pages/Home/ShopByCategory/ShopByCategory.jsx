@@ -4,9 +4,9 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Category from './Category';
 
-const SubCategories = ['Racing_Cars', 'Vintage_Cars', 'Police_Cars']
+const SubCategories = ['Racing Cars', 'Vintage Cars', 'Police Cars']
 const ShopByCategory = () => {
-    const [activeTab, setActiveTab] = useState('Racing_Cars')
+    const [activeTab, setActiveTab] = useState('Racing Cars')
     const [categoryData, SetCategoryData] = useState([])
     useEffect(() => {
         fetch(`https://toy-store-server-blond.vercel.app/toys/category/${activeTab}`)
@@ -30,12 +30,12 @@ const ShopByCategory = () => {
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
                         {categoryData.map(data => <Category category={data} key={data._id}></Category>)}
                     </div>
                 </TabPanel>
                 <TabPanel>
-                <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-5">
                         {categoryData.map(data => <Category category={data} key={data._id}></Category>)}
                     </div>
                 </TabPanel>

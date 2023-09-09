@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const Category = ({ category }) => {
   const { _id, toyName, price, ratings, toyURL } = category
   return (
+    
     <div className="w-full shadow-lg bg-white mt-5 relative rounded-md border overflow-hidden space-y-5">
       <img
         src={toyURL}
@@ -24,7 +25,7 @@ const Category = ({ category }) => {
           </p>
         </div>
 
-        <Link to={`/toy-details/${_id}`} className="bg-blue-500 hover:bg-blue-600 py-3 text-white font-semibold text-center rounded-lg btn-block text-xl mt-auto mb-5">
+        <Link to={`/toy-details/${_id}`} className="bg-indigo-500 hover:bg-indigo-600 py-3 text-white font-semibold text-center rounded-lg btn-block text-xl mt-auto mb-5">
           View Details
         </Link>
       </div>

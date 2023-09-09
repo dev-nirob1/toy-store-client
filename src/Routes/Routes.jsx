@@ -9,6 +9,7 @@ import MyToys from "../Pages/MyToys/MyToys";
 import SingleToyDetails from "../Pages/SignleToys/SingleToyDetails";
 import UpdateToy from "../Pages/UpdateToyInfo/UpdateToy";
 import Blog from "../Pages/Blog/Blog";
+import PrivateRoutes from "./PrivateRoutes";
 
 const router = createBrowserRouter([
     {
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/addToy",
-                element: <AddToy />
+                element: <PrivateRoutes><AddToy /></PrivateRoutes>
             },
             {
                 path: "/allToys",
@@ -43,11 +44,11 @@ const router = createBrowserRouter([
             },
             {
                 path: "/my-toys",
-                element: <MyToys />,
+                element: <PrivateRoutes><MyToys /></PrivateRoutes>,
             },
             {
                 path: "/toy-details/:id",
-                element: <SingleToyDetails />,
+                element: <PrivateRoutes><SingleToyDetails /></PrivateRoutes>,
                 loader: ({ params }) => fetch(`https://toy-store-server-blond.vercel.app/toys/${params.id}`)
             },
             {
