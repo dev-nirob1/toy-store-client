@@ -1,5 +1,6 @@
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import 'leaflet/dist/leaflet.css';
+import { ToastContainer, toast } from "react-toastify";
 
 const ContactUs = () => {
     const position = [24.848171, 89.371607];
@@ -11,6 +12,7 @@ const ContactUs = () => {
         const email = form.email.value;
         const message = form.message.value;
         console.log(name, email, message)
+        toast.success('Thanks! we will contact you soon')
         form.reset()
     }
     return (
@@ -37,15 +39,15 @@ const ContactUs = () => {
                         <form onSubmit={handleSendMessage}>
                             <div className="mb-4">
                                 <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
-                                <input type="text" id="name" name="name" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Your Name"/>
+                                <input type="text" id="name" name="name" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Your Name" required/>
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
-                                <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Your Email "/>
+                                <input type="email" id="email" name="email" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Your Email " required/>
                             </div>
                             <div className="mb-4">
                                 <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Message</label>
-                                <textarea id="message" name="message" rows="4" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Message"></textarea>
+                                <textarea id="message" name="message" rows="4" className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" placeholder="Message" required></textarea>
                             </div>
                             <div className="text-center">
                                 <button type="submit" className="px-4 py-2 bg-indigo-500 text-white rounded-lg btn-block hover:bg-indigo-600 focus:outline-none">Submit</button>
@@ -53,6 +55,7 @@ const ContactUs = () => {
                         </form>
                     </div>
                 </div>
+                <ToastContainer/>
             </div>
         </div>
     );

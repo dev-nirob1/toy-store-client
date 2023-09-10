@@ -109,7 +109,7 @@ const AddToy = () => {
                         </div>
                         <p className="text-red-600 font-bold text-center">{error}</p>
                         <div className="mt-6">
-                            <input className="px-4 py-2 btn-block bg-indigo-500 text-white rounded hover:bg-indigo-600" type="submit" value="Add Toy" />
+                            <input className="px-4 py-2 cursor-pointer btn-block bg-indigo-500 text-white rounded hover:bg-indigo-600" type="submit" value="Add Toy" />
                         </div>
                     </form>
                 </div>

@@ -85,7 +85,7 @@ const UpdateToy = () => {
                             <input
                                 type="submit"
                                 value="Update"
-                                className="bg-indigo-500 btn-block text-white px-4 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none"
+                                className="bg-indigo-500 cursor-pointer btn-block text-white px-4 py-2 rounded-lg hover:bg-indigo-600 focus:outline-none"
                             />
                         </div>
 

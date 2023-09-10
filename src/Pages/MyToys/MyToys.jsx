@@ -46,8 +46,9 @@ const MyToys = () => {
     }
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto my-5 md:my-10 p-4">
             <div className="overflow-x-auto">
+                <h2 className="text-center text-4xl font-semibold mb-5 ">Manage Your Toys</h2>
                 <table className="min-w-full text-center">
                     <thead>
                         <tr className="bg-gray-400 text-white">

@@ -136,7 +136,7 @@ const Register = () => {
                     {error && <p className="text-red-500 mb-3">{error}</p>}
                     {success && <p className="text-green-500">{success}</p>}
                     <input type="submit"
-                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline btn-block"
+                        className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline btn-block"
                         value="Register"
                     />
                     <div className="mt-4 text-center">

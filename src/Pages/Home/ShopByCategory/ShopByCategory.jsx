@@ -27,7 +27,7 @@ const ShopByCategory = () => {
                             className={`cursor-pointer px-4 py-2 rounded md:font-semibold ${
                                 activeTab === categoryName
                                     ? 'bg-indigo-500 text-white'
-                                    : 'text-gray-300'
+                                    : 'text-gray-100'
                             } hover:bg-indigo-600 hover:text-white`}
                         >
                             {categoryName}
