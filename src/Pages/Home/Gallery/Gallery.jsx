@@ -2,7 +2,7 @@
 const Gallery = () => {
 
     return (
-        <div className="container md:mx-auto my-10 pb-10 px-2 bg-gray-100">
+        <div data-aos="fade-up" className="container md:mx-auto my-10 pb-10 px-2 bg-gray-100">
             <h2 className="text-center text-4xl py-10 font-semibold ">Our Photo Gallary</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 container mx-auto">
                 <div className="grid gap-4">

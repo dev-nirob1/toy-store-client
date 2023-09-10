@@ -1,4 +1,3 @@
-import { FaQuoteLeft } from "react-icons/fa";
 
 const Review = ({ review }) => {
     const { customer_name, review_text, customer_image, customer_position } = review;
@@ -12,8 +11,7 @@ const Review = ({ review }) => {
                 src={customer_image}
                 alt="customer image"
             />
-            <div className="relative">
-                <FaQuoteLeft className="absolute -top-7 left-4 text-4xl text-gray-400" />
+            <div className="relative overflow-hidden">
                 <div data-aos="fade-down" className="mt-10 mb-5">
                     <h4 className="text-2xl font-semibold">{customer_name}</h4>
                     <p className="italic text-sm font-medium">{customer_position.working_role} at {customer_position.company_name}</p>

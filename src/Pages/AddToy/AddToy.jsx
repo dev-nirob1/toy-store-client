@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import useTitle from "../../Hooks/useTitle";
 import { ToastContainer, toast } from 'react-toastify';
@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const AddToy = () => {
     useTitle('Add Toy')
     const { user } = useContext(AuthContext)
+    const [error, setError] = useState('')
 
     const handleAddToy = event => {
         event.preventDefault()
@@ -20,17 +21,17 @@ const AddToy = () => {
         const ratings = form.ratings.value;
         const quantity = form.quantity.value;
         const description = form.description.value;
-        if(toyName === '' || toyImage === ''){
-            toast('Please Fill All Those Fields First ')
-        }
-        if (ratings > 5) {
-            toast('Please add ratings equal or under 5')
+
+        if ((ratings > 5) || (ratings <= 0)) {
+            setError('Please Input ratings value 1 to 5 and do not add negative value')
             return
         }
-        else if (ratings <= 0) {
-            toast('Please add Ratings value 1-5')
+
+        if (toyName === '' || toyImage === '' || quantity === '' || price === '' || email === '' || description === '') {
+            toast.error('Please Fill All Those Fields First ')
             return
         }
+        setError('')
 
         const addToys = { name, email, toyName, toyImage, SubCategory, price, ratings, quantity, description }
 
@@ -106,7 +107,7 @@ const AddToy = () => {
                             <label htmlFor="description" className="block text-sm font-medium mb-1">Toy Description</label>
                             <textarea name="description" className="w-full p-2 border rounded" placeholder="About Your Toy"></textarea>
                         </div>
-
+                        <p className="text-red-600 font-bold text-center">{error}</p>
                         <div className="mt-6">
                             <input className="px-4 py-2 btn-block bg-indigo-500 text-white rounded hover:bg-indigo-600" type="submit" value="Add Toy" />
                         </div>

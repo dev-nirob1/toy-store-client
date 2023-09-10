@@ -14,10 +14,10 @@ const ContactUs = () => {
         form.reset()
     }
     return (
-        <div className="container mx-auto pb-10 my-10 md:h-auto w-full bg-[#342F46]">
+        <div className="container overflow-hidden mx-auto pb-10 my-10 md:h-auto w-full bg-[#342F46]">
             <h2 className="text-center text-gray-100 py-10 text-4xl font-semibold">Contact us</h2>
             <div className="grid grid-cols-6 gap-4 mx-5 h-auto items-center">
-                <div className="col-span-6 md:col-span-3 lg:col-span-4 h-[450px]">
+                <div data-aos="fade-right" className="col-span-6 md:col-span-3 lg:col-span-4 h-[450px]">
                     <MapContainer className="h-full" center={position} zoom={13} scrollWheelZoom={false}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -31,7 +31,7 @@ const ContactUs = () => {
                     </MapContainer>
                 </div>
                 
-                <div className="col-span-6 md:col-span-3 lg:col-span-2">
+                <div data-aos="fade-left" className="col-span-6 md:col-span-3 lg:col-span-2">
                     <div className="bg-gray-50 shadow p-4 rounded">
                         <h3 className="text-xl font-semibold mb-4">Contact Form</h3>
                         <form onSubmit={handleSendMessage}>
