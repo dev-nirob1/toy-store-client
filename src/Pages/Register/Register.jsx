@@ -1,83 +1,63 @@
-import { useContext, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { AuthContext } from "../../Provider/AuthProvider";
 import useTitle from "../../Hooks/useTitle";
-import { ToastContainer, toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
+import { createUser } from "../../redux/features/userSlice";
+import { useDispatch, useSelector } from "react-redux";
+import Button from "../../Components/Shared/Button";
 
 
 const Register = () => {
     useTitle('Register')
-    const [error, setError] = useState('');
-    const [success, setSuccess] = useState('');
-    const { createUser, googleLogin } = useContext(AuthContext);
+    const [errorMessage, setErrorMessage] = useState('');
     const regex = /^(?=.*[!@#$%^&*])(?=.*\d)(?=.*[A-Z]).{6,}$/;
     const urlValidation = /^(ftp|http|https):\/\/[^ "]+$/;
     const location = useLocation();
     const navigate = useNavigate();
     let from = location.state?.from?.pathname || "/";
+    const disptach = useDispatch()
+    const { isLoading, isSuccess, isError, error } = useSelector(state => state.usersReducer)
 
-    const handleRegister = event => {
+    useEffect(() => {
+        if (isSuccess && !isLoading) {
+            navigate(from, { replace: true });
+            toast.success('Welcome Back!');
+        } else if (isError && !isLoading) {
+            setErrorMessage(error);
+        }
+    }, [isSuccess, isError, isLoading, error, from, navigate]);
+
+    const handleRegister = (event) => {
         event.preventDefault()
         const form = event.target;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const photoUrl = form.photoUrl.value;
-        console.log(name, email, password, photoUrl)
-
-        setError('');
-        setSuccess('');
+        setErrorMessage('');
 
         if (name === '') {
-            setError('Please provide your name');
+            setErrorMessage('Please provide your name');
             return;
-        }
-        else if (photoUrl === '') {
-            setError('Please fill the photoUrl field');
+        } else if (photoUrl === '') {
+            setErrorMessage('Please fill the photoUrl field');
             return;
-        }
-        else if (!urlValidation.test(photoUrl)) {
-            setError('Please add a valid url')
+        } else if (!urlValidation.test(photoUrl)) {
+            setErrorMessage('Please add a valid url')
             return
-        }
-        else if (password.length < 6) {
-            setError('Your password must be at least 6 characters long');
+        } else if (password.length < 6) {
+            setErrorMessage('Your password must be at least 6 characters long');
             return;
-        }
-        else if (!regex.test(password)) {
-            setError(
+        } else if (!regex.test(password)) {
+            setErrorMessage(
                 'Password must contain at least one special character, one number, and one capital letter'
             );
             return;
         }
 
-        createUser(email, password)
-            .then(result => {
-                const newUser = result.user;
-                if (newUser) {
-                    alert('User Created Successfully')
-                    setSuccess('Registration Success')
-                }
-                form.reset()
-                navigate('/')
-            })
-            .catch(error => {
-                console.log(error)
-            })
-    }
-    const handleGoogleLogin = () => {
-        googleLogin()
-            .then(result => {
-                const user = result.user;
-                if (user) {
-                    toast.success('Registration Succesfull')
-                    setSuccess('Registration SuccessFull')
-                    navigate(from, { replace: true })
-                }
-            })
-            .catch(error => {
-                console.log(error.message)
-            })
+        const res = disptach(createUser({ email, password }))
+        console.log(res)
+
     }
 
     return (
@@ -133,27 +113,21 @@ const Register = () => {
 
                         />
                     </div>
-                    {error && <p className="text-red-500 mb-3">{error}</p>}
-                    {success && <p className="text-green-500">{success}</p>}
-                    <input type="submit"
-                        className="bg-blue-500 cursor-pointer hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline btn-block"
-                        value="Register"
+                    {isError && <p className="text-red-500 mb-3">{errorMessage}</p>}
+                    <input
+                        type="submit"
+                        disabled={isLoading}
+                        className={`bg-blue-500 ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline`}
+                        value={isLoading ? 'Loading...' : 'Login'}
                     />
                     <div className="mt-4 text-center">
-                        <button
-                            className="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline mt-5"
-                            type="button"
-                            onClick={handleGoogleLogin}
-                        >
-                            Sign in with Google
-                        </button>
-
+                        <Button />
                     </div>
                 </form>
                 <div className="mt-4 text-center">
                     <span>Already have an account? <Link className="text-blue-500" to="/login">Login</Link></span>
                 </div>
-                <ToastContainer/>
+                <ToastContainer />
             </div>
         </div>
     );

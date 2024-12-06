@@ -1,23 +1,20 @@
-import { useContext, useEffect, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
 import MyToysData from "./MyToysData";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
+import { useDeleteToyMutation, useGetUsersToyQuery } from "../../redux/features/toysApi";
+import Loading from "../../Components/Loading/Loading";
 
 const MyToys = () => {
-    const { user } = useContext(AuthContext);
-    const [myToys, setMyToys] = useState([]);
+    const { email } = useSelector(state => state.usersReducer)
+    const { data: myToys, isLoading } = useGetUsersToyQuery(email)
+    const [deleteToy] = useDeleteToyMutation()
 
-    const url = `https://toy-store-server-blond.vercel.app/my-toys?email=${user?.email}`;
+    if (isLoading) {
+        return <Loading />
+    }
 
-    useEffect(() => {
-        fetch(url)
-            .then((res) => res.json())
-            .then((data) => setMyToys(data));
-    }, [url]);
-
-    const handleDelete = _id => {
-        console.log(_id)
-        Swal.fire({
+    const handleDelete = async (id) => {
+        const result = await Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
             icon: 'warning',
@@ -25,24 +22,18 @@ const MyToys = () => {
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                fetch(`https://toy-store-server-blond.vercel.app/toys/${_id}`, {
-                    method: 'DELETE'
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        if(data.deletedCount > 0) {
-                            Swal.fire(
-                                'Deleted!',
-                                'Your product has been deleted.',
-                                'success'
-                            )
-                            setMyToys(prevMyToys => prevMyToys.filter(toy => toy._id !== _id));
-                        }
-                    })
-            }
         })
+
+        if (result.isConfirmed) {
+            const data = await deleteToy(id)
+            if (data?.data?.deletedCount == 1) {
+                Swal.fire(
+                    'Deleted!',
+                    'Your product has been deleted.',
+                    'success'
+                )
+            }
+        }
     }
 
     return (
@@ -51,7 +42,7 @@ const MyToys = () => {
                 <h2 className="text-center text-4xl font-semibold mb-5 ">Manage Your Toys</h2>
                 <table className="min-w-full text-center">
                     <thead>
-                        <tr className="bg-gray-400 text-white">
+                        <tr className="bg-gray-800 text-white">
                             <th className="p-3">ID</th>
                             <th className="p-3">Toy Name</th>
                             <th className="p-3">Sub-Category</th>

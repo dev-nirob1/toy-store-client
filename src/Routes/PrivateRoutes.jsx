@@ -1,16 +1,37 @@
-import { useContext } from 'react';
-import { AuthContext } from '../Provider/AuthProvider';
 import { Navigate, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { onAuthStateChanged } from 'firebase/auth';
+import auth from '../Firebase/firebase.config';
+import { setUser, toggleLoading } from '../redux/features/userSlice';
+import Loading from '../Components/Loading/Loading';
 
 const PrivateRoutes = ({ children }) => {
-    const { user, loading } = useContext(AuthContext);
     const location = useLocation()
-    if (loading) {
-        return <div className='h-screen w-full flex items-center justify-center'>
-            <span className="loading text-centerloading-bars loading-lg"></span>
-        </div>
+    const dispatch = useDispatch()
+    const { email, isLoading } = useSelector((state) => state.usersReducer)
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                console.log(user)
+                dispatch(setUser({
+                    name: user?.displayName,
+                    email: user?.email
+                }))
+                dispatch(toggleLoading(false))
+            }
+            else {
+                dispatch(toggleLoading(false))
+            }
+        });
+    }, [dispatch])
+
+
+    if (isLoading) {
+        return <Loading />
     }
-    if (user?.email) {
+    if (email) {
         return children;
     }
     return <Navigate state={{ from: location }} to="/login" />

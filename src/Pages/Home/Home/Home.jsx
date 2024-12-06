@@ -1,32 +1,33 @@
 import useTitle from "../../../Hooks/useTitle";
-import ContactUs from "../ContactUs/ContactUs";
-import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
 import Testimonial from "../Testimonial/Testimonial";
 import Banner from "./Banner/Banner";
-import { useContext } from "react";
-import { AuthContext } from "../../../Provider/AuthProvider";
+import FeaturedProduct from "../Featured/FeaturedProduct";
+import WhyChooseUs from "../WhyChoose/WhyChooseUs";
+import PlaytimeFeature from "../PlaytimeFeature/PlaytimeFeature";
+import NewsLetter from "../NewsLetter/NewsLetter";
+import { useSelector } from "react-redux";
+import Loading from "../../../Components/Loading/Loading";
 
 const Home = () => {
-    useTitle('Home')
-    const {loading} = useContext(AuthContext)
-    
-      if (loading) {
-        return (
-          <div className="h-screen w-full flex justify-center items-center">
-            <span className="loading loading-spinner text-primary h-16 w-16"></span>
-          </div>
-        );
-      }
-    return (
-            <div>
-                <Banner></Banner>
-                <Gallery></Gallery>
-                <ShopByCategory></ShopByCategory>
-                <Testimonial></Testimonial>
-                <ContactUs></ContactUs>
-            </div>
-    );
+  useTitle('Home')
+  const { isLoading } = useSelector((state) => state.usersReducer)
+
+
+  if (isLoading) {
+    return <Loading />
+  }
+  return (
+    <div>
+      <Banner />
+      <FeaturedProduct />
+      <WhyChooseUs />
+      <ShopByCategory />
+      <PlaytimeFeature />
+      <Testimonial />
+      <NewsLetter />
+    </div>
+  );
 };
 
 export default Home;

@@ -12,7 +12,7 @@ const Testimonial = () => {
     }, [])
 
     return (
-        <div className="my-10 container mx-auto bg-gray-50">
+        <div className="my-10 container mx-auto">
             <h2 data-aos="fade-up" data-aos-duration="1000" className="text-center text-gray-900 text-4xl font-semibold py-10">Customer Review</h2>
 
                 <Marquee>

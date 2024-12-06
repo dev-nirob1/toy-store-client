@@ -1,13 +1,18 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "../../Provider/AuthProvider";
+import { useState } from "react";
 import useTitle from "../../Hooks/useTitle";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useSetToyMutation } from "../../redux/features/toysApi";
+import { useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 const AddToy = () => {
     useTitle('Add Toy')
-    const { user } = useContext(AuthContext)
+    const { email, name } = useSelector(state => state.usersReducer)
     const [error, setError] = useState('')
+    const [setToy, { isLoading, data }] = useSetToyMutation()
+
+    console.log(data)
 
     const handleAddToy = event => {
         event.preventDefault()
@@ -16,7 +21,7 @@ const AddToy = () => {
         const email = form.email.value;
         const toyName = form.toyName.value;
         const toyImage = form.toyUrl.value;
-        const SubCategory = form.category.value;
+        const category = form.category.value;
         const price = form.price.value;
         const ratings = form.ratings.value;
         const quantity = form.quantity.value;
@@ -32,24 +37,15 @@ const AddToy = () => {
             return
         }
         setError('')
-
-        const addToys = { name, email, toyName, toyImage, SubCategory, price, ratings, quantity, description }
-
-        fetch('https://toy-store-server-blond.vercel.app/toys', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(addToys)
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.acknowledged) {
-                    toast('Toy added SuccessFully')
-                    form.reset()
-                }
-            })
+        const toy = { name, email, toyName, toyImage, category, price, ratings, quantity, description }
+        setToy(toy)
+        
+        if (data?.acknowledged) {
+            Navigate('/')
+            return toast('Toy Added')
+        }
     }
+
 
     return (
         <div className=" py-10 bg-gradient-to-tr from-slate-200 to-slate-100">
@@ -61,11 +57,11 @@ const AddToy = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                             <div className="mb-0 md:mb-4">
                                 <label htmlFor="name" className="block text-sm font-medium mb-1">Seller Name</label>
-                                <input type="text" name="name" defaultValue={user && user.displayName} className="w-full p-2 border rounded" placeholder="Seller Name" />
+                                <input type="text" name="name" defaultValue={name} className="w-full p-2 border rounded cursor-not-allowed" disabled placeholder="Seller Name" />
                             </div>
                             <div className="mb-0 md:mb-4">
                                 <label htmlFor="email" className="block text-sm font-medium mb-1">Email Address</label>
-                                <input type="email" name="email" defaultValue={user && user.email} className="w-full p-2 border rounded" placeholder="Email" />
+                                <input type="email" name="email" defaultValue={email} className="w-full p-2 border rounded cursor-not-allowed" disabled placeholder="Email" />
                             </div>
 
                             <div className="mb-0 md:mb-4">
@@ -80,9 +76,10 @@ const AddToy = () => {
                             <div className="mb-0 md:mb-4">
                                 <label htmlFor="category" className="block text-sm font-medium mb-1">Sub-Category</label>
                                 <select name="category" className="w-full p-2 border rounded">
-                                    <option value="Racing Cars">Racing Cars</option>
-                                    <option value="Vintage Cars">Vintage Cars</option>
-                                    <option value="Police Cars">Police Cars</option>
+                                    <option value="Cars">Cars</option>
+                                    <option value="Learn & Play">Learn & Play</option>
+                                    <option value="Cuddles">Cuddles</option>
+                                    <option value="Dolls">Dolls</option>
                                 </select>
                             </div>
 
@@ -109,7 +106,7 @@ const AddToy = () => {
                         </div>
                         <p className="text-red-600 font-bold text-center">{error}</p>
                         <div className="mt-6">
-                            <input className="px-4 py-2 cursor-pointer btn-block bg-indigo-500 text-white rounded hover:bg-indigo-600" type="submit" value="Add Toy" />
+                            <input className="px-4 py-2 cursor-pointer btn-block bg-indigo-500 text-white rounded hover:bg-indigo-600" type="submit" value={isLoading ? "Adding..." : "Add Toy"} />
                         </div>
                     </form>
                 </div>

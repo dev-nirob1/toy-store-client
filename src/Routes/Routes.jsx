@@ -8,15 +8,17 @@ import AllToys from "../Pages/AllToys/AllToys";
 import MyToys from "../Pages/MyToys/MyToys";
 import SingleToyDetails from "../Pages/SignleToys/SingleToyDetails";
 import UpdateToy from "../Pages/UpdateToyInfo/UpdateToy";
-import Blog from "../Pages/Blog/Blog";
 import PrivateRoutes from "./PrivateRoutes";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Contact from "../Pages/Contact/Contact";
+import About from "../Pages/About/About";
 
 const router = createBrowserRouter([
     {
         path: "/",
         element: <App />,
         errorElement: <ErrorPage />,
+        
         children: [
             {
                 path: "/",
@@ -30,18 +32,22 @@ const router = createBrowserRouter([
                 path: "/register",
                 element: <Register />
             },
+
             {
-                path: "/blog",
-                element: <Blog />
-            },
-            {
-                path: "/addToy",
+                path: "/add-toy",
                 element: <PrivateRoutes><AddToy /></PrivateRoutes>
             },
             {
-                path: "/allToys",
-                element: <AllToys />,
-                loader: () => fetch('https://toy-store-server-blond.vercel.app/toys')
+                path: "/contact",
+                element: <Contact />
+            },
+            {
+                path: "/about",
+                element: <About />
+            },
+            {
+                path: "/all-toys",
+                element: <AllToys />
             },
             {
                 path: "/my-toys",
@@ -49,8 +55,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/toy-details/:id",
-                element: <PrivateRoutes><SingleToyDetails /></PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://toy-store-server-blond.vercel.app/toys/${params.id}`)
+                element: <PrivateRoutes><SingleToyDetails /></PrivateRoutes>
             },
             {
                 path: "/update/:id",

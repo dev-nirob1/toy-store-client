@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-// Import Swiper styles
+import {Link} from 'react-router-dom'
 import 'swiper/css';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -15,6 +15,7 @@ const Banner = () => {
             .then(res => res.json())
             .then(data => setSliderInfo(data))
     }, [])
+    
     return (
         <div className='container mx-auto my-10'>
             <Swiper
@@ -37,13 +38,13 @@ const Banner = () => {
                     sliderInfo.map((singleSlide, i) => <SwiperSlide key={i}>
                         <div className='relative w-full h-[500px] md:h-screen'>
                             <img className='w-full h-full' src={singleSlide.image} alt="banner image" />
-                            <div className='absolute bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 0.00)] h-full w-full top-0 left-0 text-white flex items-center px-9 md:pl-24 '>
+                            <div className='absolute bg-gradient-to-t from-gray-800 to-transparent h-full w-full top-0 left-0 text-white flex items-center px-9 md:pl-24 '>
                                 <div data-aos="fade-up" data-aos-duration="1000" className='space-y-5 md:w-1/2'>
                                     <h3 className='text-4xl md:text-5xl font-semibold text-gray-100'>{singleSlide.title}</h3>
-                                    <p className='text-base md:text-lg text-gray-100'>{singleSlide.description}</p>
+                                    <p className='text-base md:text-lg text-gray-200'>{singleSlide.description}</p>
 
-                                    <button className='btn btn-primary mr-5'>{singleSlide.buttonText}</button>
-                                    <button className='btn btn-warning'>{singleSlide.buttonLink}</button>
+                                    <Link className='btn btn-warning mr-5'>Exprole Our Collection</Link>
+                     
                                 </div>
                             </div>
                         </div>

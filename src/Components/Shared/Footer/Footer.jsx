@@ -1,11 +1,11 @@
 
 function Footer() {
     return (
-        <footer className="bg-gray-800 text-white py-8">
+        <footer className="bg-slate-950 text-white py-8">
             <div className="mx-10">
             <div className="container mx-auto grid grid-cols-2 md:grid-cols-4">
                 <div className="mb-4 md:mb-0">
-                    <img src="logo.png" alt="Toy Cars" className="w-28 md:ml-5" />
+                    <img src="logo.webp" alt="Toy Cars" className="w-28 md:ml-5 mix-blend-multiply" />
                 </div>
                 <div className="space-y-1 text-gray-200">
                     <h3 className="text-xl font-semibold mb-4">Contact Us</h3>
@@ -32,7 +32,7 @@ function Footer() {
                 </div>
             </div>
             <div className="text-center mt-8">
-                <p>&copy; 2023 Toy Cars. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Toy Store. All rights reserved.</p>
             </div>
             </div>
         </footer>
