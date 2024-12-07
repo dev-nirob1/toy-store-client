@@ -8,9 +8,7 @@ import Loading from "../../Components/Loading/Loading";
 
 const SingleToy = () => {
     const { id } = useParams()
-    console.log(id)
     const { data: singleToy, isLoading } = useGetSingleToyQuery(id)
-    console.log(singleToy, id)
     const [count, setCount] = useState(0);
     useTitle(`${singleToy?.toyName}, Details`)
 

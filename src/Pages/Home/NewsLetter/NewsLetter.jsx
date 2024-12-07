@@ -10,8 +10,10 @@ const NewsLetter = () => {
         }
     }
     return (
-        <section className="py-16 my-16 px-4 md:px-8 bg-slate-950 text-white mt-16 text-center">
+        <section className="py-16 px-4 md:px-8 bg-slate-950 text-white text-center">
+
             <h2 className="text-3xl md:text-5xl font-bold mb-4">Stay Updated</h2>
+
             <p className="text-base md:text-lg text-gray-200 mb-8">Subscribe to our newsletter for the latest toys, exclusive offers, and more!</p>
 
             <form onSubmit={handleSubmit} className="flex justify-center items-center">

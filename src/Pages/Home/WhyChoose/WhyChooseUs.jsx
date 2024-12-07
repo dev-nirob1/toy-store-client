@@ -1,9 +1,14 @@
+import Title from "../../../Components/Title";
 
 const WhyChooseUs = () => {
 
     return (
         <section className="py-16 px-4 md:px-8 bg-black text-gray-200">
-            <h2 className="text-2xl md:text-4xl lg:text-6xl text-center font-bold mb-8">Why Choose Us?</h2>
+
+           <div className="text-center">
+            <Title title="Why Choose Us?"/>
+           </div>
+
             <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12 text-gray-200">
                 <div className="text-center">
                     <img className="w-fit mx-auto" src="/fastship.png" alt="fast shiping" />

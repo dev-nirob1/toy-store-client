@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Review from "./Review";
 import Marquee from "react-fast-marquee";
+import Title from "../../../Components/Title";
 
 const Testimonial = () => {
     const [customerReview, setCustomerReview] = useState([])
@@ -12,16 +13,19 @@ const Testimonial = () => {
     }, [])
 
     return (
-        <div className="my-10 container mx-auto">
-            <h2 data-aos="fade-up" data-aos-duration="1000" className="text-center text-gray-900 text-4xl font-semibold py-10">Customer Review</h2>
+        <div className="container mx-auto">
 
-                <Marquee>
-                    <div className="grid grid-cols-5 my-10">
-                        {
-                            customerReview.map(review => <Review key={review._id} review={review}></Review>)
-                        }
-                    </div>
-                </Marquee>
+            <div className="text-center mb-12">
+                <Title title="Customer Review"/>
+            </div>
+            
+            <Marquee>
+                <div className="grid grid-cols-5 my-10">
+                    {
+                        customerReview.map(review => <Review key={review._id} review={review}></Review>)
+                    }
+                </div>
+            </Marquee>
         </div>
     );
 };

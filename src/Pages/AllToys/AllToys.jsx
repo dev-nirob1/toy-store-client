@@ -24,7 +24,7 @@ const AllToys = () => {
 
         <div className='container mx-auto my-10 mt-2'>
             <div className="text-center my-10">
-                <div className="flex items-center w-1/2 mx-auto border rounded-lg">
+                <div className="flex items-center w-3/4 md:w-1/2 mx-auto border rounded-lg">
                     <span className="px-2">
                         <FaSearch />
                     </span>

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 
 const PlaytimeFeature = () => {
     return (
-        <section className="container mx-auto my-16">
-            <div className="relative h-[80vh] w-full">
+        <section className="container mx-auto">
+            <div className="relative h-[60vh] md:h-[80vh] w-full">
                 <img className="h-full w-full object-center" src="/home.webp" alt="image" />
                 <div className="absolute top-0 left-0 h-full w-full flex items-center justify-center text-center bg-gradient-to-b from-slate-300/30 via-slate-700/50 to-slate-600/20">
                     <div>

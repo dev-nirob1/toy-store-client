@@ -1,12 +1,13 @@
+import Title from "../../Components/Title";
 
 const Story = () => {
     return (
         <section className="py-16 px-4 md:px-8 mt-16">
                 <div className="flex flex-col md:flex-row justify-between md:items-center gap-12">
                     <div className="md:text-left md:w-1/2 space-y-6">
-                        <h2 className="text-4xl md:text-6xl lg:7xl font-bold mb-6">
-                            Our Story
-                        </h2>
+
+                       <Title title="Our Story"/>
+                       
                         <p className="leading-relaxed text-gray-600">
                             At **ToyStore**, our journey began with a simple mission: to bring joy, creativity, and learning to every child. What started as a small family business has grown into a trusted name for high-quality, innovative, and safe toys that spark imagination.
                         </p>

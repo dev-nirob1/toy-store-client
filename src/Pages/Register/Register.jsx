@@ -56,8 +56,7 @@ const Register = () => {
         }
 
         const res = disptach(createUser({ email, password }))
-        console.log(res)
-
+        console.log(res);
     }
 
     return (
@@ -120,7 +119,7 @@ const Register = () => {
                         className={`bg-blue-500 ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline`}
                         value={isLoading ? 'Loading...' : 'Login'}
                     />
-                    <div className="mt-4 text-center">
+                    <div className="mt-6 text-center">
                         <Button />
                     </div>
                 </form>

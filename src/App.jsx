@@ -5,9 +5,9 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 import { setUser, toggleLoading } from './redux/features/userSlice';
 import auth from './Firebase/firebase.config';
-import Navbar from './Components/Shared/Header/Navbar';
 import Footer from './Components/Shared/Footer/Footer';
 import { ToastContainer } from 'react-toastify';
+import Navbar from './Components/Shared/Header/Navbar';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,7 +30,9 @@ function App() {
     <div>
       <ToastContainer/>
       <Navbar></Navbar>
+      <div className='min-h-[calc(100vh-100px)]'>
       <Outlet></Outlet>
+      </div>
       <Footer></Footer>
     </div>
   )

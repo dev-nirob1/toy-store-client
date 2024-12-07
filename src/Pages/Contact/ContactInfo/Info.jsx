@@ -1,9 +1,10 @@
 
 const Info = () => {
-    return (
-        <div className="md:w-1/2 space-y-6">
+  return (
+    <div className="md:w-1/2 space-y-6 relative">
+      <div className="">
         <h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
-        <p className="text-lg text-gray-700">
+        <p className="text-lg text-gray-700 w-full md:w-3/4">
           We would love to hear from you. Reach out to us through the following ways:
         </p>
 
@@ -26,7 +27,8 @@ const Info = () => {
           </li>
         </ul>
       </div>
-    );
+    </div>
+  );
 };
 
 export default Info;

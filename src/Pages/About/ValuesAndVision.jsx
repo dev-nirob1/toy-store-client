@@ -1,10 +1,13 @@
+import Title from "../../Components/Title";
 
 
 const ValuesAndVision = () => {
     return (
         <section className="py-24 px-6 bg-gray-50">
         <div className="max-w-5xl mx-auto text-center space-y-6">
-            <h2 className="text-4xl md:text-6xl font-bold text-gray-800">Our Values & Vision</h2>
+
+           <Title title="Our Values & Vision"/>
+
             <p className="text-lg md:text-2xl text-gray-700">
                 We believe in the power of play. Every toy is an opportunity to learn, explore, and grow. Our vision is to create a world where every child can access toys that inspire their creativity and imagination, helping them become the dreamers of tomorrow.
             </p>

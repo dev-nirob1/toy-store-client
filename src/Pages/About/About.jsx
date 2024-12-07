@@ -1,10 +1,13 @@
 import Banner from "../../Components/Shared/Banner";
+import useTitle from "../../Hooks/useTitle";
 import CommunityInvite from "./CommunityInvite";
 import Explore from "./Explore";
 import Story from "./Story";
 import ValuesAndVision from "./ValuesAndVision";
 
 const About = () => {
+    useTitle('About')
+
     return (
         <div className="container mx-auto my-16">
             {/* top banner */}

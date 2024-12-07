@@ -3,8 +3,12 @@ import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
 import { useDeleteToyMutation, useGetUsersToyQuery } from "../../redux/features/toysApi";
 import Loading from "../../Components/Loading/Loading";
+import Title from "../../Components/Title";
+import useTitle from "../../Hooks/useTitle";
 
 const MyToys = () => {
+    useTitle('My Toys')
+
     const { email } = useSelector(state => state.usersReducer)
     const { data: myToys, isLoading } = useGetUsersToyQuery(email)
     const [deleteToy] = useDeleteToyMutation()
@@ -38,14 +42,16 @@ const MyToys = () => {
 
     return (
         <div className="container mx-auto my-5 md:my-10 p-4">
-            <div className="overflow-x-auto">
-                <h2 className="text-center text-4xl font-semibold mb-5 ">Manage Your Toys</h2>
-                <table className="min-w-full text-center">
+            <div className="text-center mb-6">
+                <Title title="Manage Your Toys" />
+            </div>
+            <div className="overflow-x-scroll">
+                <table className="w-full text-center whitespace-nowrap text-[12px] md:text-base">
                     <thead>
-                        <tr className="bg-gray-800 text-white">
-                            <th className="p-3">ID</th>
+                        <tr className="bg-slate-900 text-white">
+                            <th className="p-3">Serial</th>
                             <th className="p-3">Toy Name</th>
-                            <th className="p-3">Sub-Category</th>
+                            <th className="p-3">Category</th>
                             <th className="p-3">Price</th>
                             <th className="p-3">Available Quantity</th>
                             <th className="p-3">Action</th>

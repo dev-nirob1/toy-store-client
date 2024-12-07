@@ -1,10 +1,14 @@
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
+import Title from '../../Components/Title';
 
 const Map = () => {
     return (
-        <section className="mt-16">
-            <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Find Us on the Map</h2>
+        <section>
+            <div className="text-center mb-16">
+                <Title title="Find Us on the Map" />
+            </div>
+
             <div className="w-full h-72 md:h-[500px]">
                 <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false} className="w-full h-full">
                     <TileLayer

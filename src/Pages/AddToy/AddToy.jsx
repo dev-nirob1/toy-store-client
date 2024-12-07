@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useSetToyMutation } from "../../redux/features/toysApi";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import Title from "../../Components/Title";
 
 const AddToy = () => {
     useTitle('Add Toy')
@@ -48,10 +49,12 @@ const AddToy = () => {
 
 
     return (
-        <div className=" py-10 bg-gradient-to-tr from-slate-200 to-slate-100">
+        <div className="py-10 bg-gradient-to-tr from-slate-200 to-slate-100">
             <div className="container w-11/12 mx-auto border md:w-3/4 bg-white rounded shadow-lg">
                 <div>
-                    <h2 className="text-4xl text-gray-700 font-semibold mb-4 text-center pt-5 underline">Add Your Toy</h2>
+                    <div className="text-center underline pt-5">
+                        <Title title="Add Toy"/>
+                    </div>
 
                     <form onSubmit={handleAddToy} className="p-5 md:p-10 ">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">

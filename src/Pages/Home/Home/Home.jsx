@@ -18,7 +18,7 @@ const Home = () => {
     return <Loading />
   }
   return (
-    <div>
+    <div className="space-y-16">
       <Banner />
       <FeaturedProduct />
       <WhyChooseUs />

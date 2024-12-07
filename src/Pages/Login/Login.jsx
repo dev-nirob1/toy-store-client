@@ -78,7 +78,7 @@ const Login = () => {
                         <input
                             type="submit"
                             disabled={isLoading}
-                            className={`bg-blue-500 ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 rounded focus:outline-none btn-block focus:shadow-outline`}
+                            className={`bg-blue-500 ${isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:bg-blue-700'} text-white font-bold py-2 px-4 mb-5 rounded focus:outline-none btn-block focus:shadow-outline`}
                             value={isLoading ? 'Loading...' : 'Login'}
                         />
 

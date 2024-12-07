@@ -17,7 +17,7 @@ const Banner = () => {
     }, [])
     
     return (
-        <div className='container mx-auto my-10'>
+        <div className='container mx-auto mt-16'>
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}

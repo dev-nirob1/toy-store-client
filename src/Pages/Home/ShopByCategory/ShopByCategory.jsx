@@ -4,6 +4,7 @@ import 'react-tabs/style/react-tabs.css';
 import Category from './Category';
 import { useGetCategoryToyQuery } from '../../../redux/features/toysApi';
 import Loading from '../../../Components/Loading/Loading';
+import Title from '../../../Components/Title';
 
 const categories = ['Cars', 'Learn & Play', 'Cuddles', 'Dolls'];
 // const SubCategories = ['Cars', 'Learn & Play', 'Cuddles'];
@@ -17,10 +18,14 @@ const ShopByCategory = () => {
     }
 
     return (
-        <div className='py-10 mt-10 container mx-auto'>
-            <h3 className='text-center text-4xl font-semibold mb-10'>Shop By Category</h3>
-            <Tabs className="mx-auto text-center">
-                <TabList className="flex justify-center gap-5 bg-slate-950 p-4 rounded">
+        <div className='px-3 container mx-auto'>
+
+            <div className='text-center mb-12'>
+                <Title title="Shop By Category" />
+
+            </div>
+            <Tabs className="mx-auto text-center text-sm">
+                <TabList className="flex justify-center gap-5 bg-slate-950 p-4 rounded whitespace-nowrap">
                     {categories.map((categoryName, i) => (
                         <Tab
                             key={i}
