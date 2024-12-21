@@ -36,11 +36,14 @@
 
 - **Frontend**:  
   - React.js  
+  - Tailwind CSS  
   - Redux Toolkit  
   - RTK Query  
-  - Tailwind CSS  
+  - Firebase (Authentication) 
+  - React Router DOM
+  - React Toastify
+  - React Icons
 
 - **Backend**:  
-  - Firebase  
   - MongoDB  
   - Express.js  
