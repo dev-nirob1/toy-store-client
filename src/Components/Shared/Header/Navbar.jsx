@@ -6,6 +6,8 @@ import { logout } from "../../../redux/features/userSlice";
 import auth from "../../../Firebase/firebase.config";
 import { FaBars } from "react-icons/fa";
 import { FaXmark } from "react-icons/fa6";
+import { FaRegCircleUser } from "react-icons/fa6";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [isDropdownOpen, setIsDropdownOpen] = useState(false)
@@ -103,12 +105,15 @@ const Navbar = () => {
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 className="flex items-center"
               >
-                <img
-                  className="h-10 w-10 rounded-full cursor-pointer"
+                {profileImage ? <img
+                  className="h-12 w-12 rounded-full cursor-pointer border"
                   src={profileImage}
                   alt="user avatar"
                   title={name}
                 />
+                  :
+                   <FaRegCircleUser className="h-10 w-10 rounded-full" title={name} />
+                }
               </button>
 
               {/* Dropdown Menu */}

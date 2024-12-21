@@ -1,7 +1,6 @@
 
 const Review = ({ review }) => {
     const { customer_name, review_text, customer_image, customer_position } = review;
-    // console.log(review)
 
     return (
 

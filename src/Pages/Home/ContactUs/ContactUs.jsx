@@ -13,7 +13,6 @@ const ContactUs = () => {
         const message = form.message.value;
         console.log(name, email, message)
         toast.success('Thanks! we will contact you soon')
-        form.reset()
     }
     return (
         <div className="container overflow-hidden mx-auto pb-10 my-10 md:h-auto w-full bg-[#342F46]">

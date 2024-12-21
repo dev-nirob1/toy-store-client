@@ -16,7 +16,6 @@ export const createUser = createAsyncThunk(
     'userSlice/createUser',
     async ({ email, password }) => {
         const data = await createUserWithEmailAndPassword(auth, email, password)
-        console.log(data)
         return { name: data.user.displayName, email: data.user.email, profileImage: data.user.photoURL };
     })
 
@@ -24,7 +23,6 @@ export const loginUser = createAsyncThunk(
     'userSlice/loginUser',
     async ({ email, password }) => {
         const data = await signInWithEmailAndPassword(auth, email, password)
-        console.log(data)
         return { name: data.user.displayName, email: data.user.email, profileImage: data.user.photoURL }
     }
 )
@@ -33,7 +31,6 @@ export const googleLogin = createAsyncThunk(
     async () => {
         const googleProvider = new GoogleAuthProvider()
         const data = await signInWithPopup(auth, googleProvider)
-        console.log(data)
         return { name: data.user.displayName, email: data.user.email, profileImage: data.user.photoURL }
     }
 
@@ -48,15 +45,18 @@ const usersSlice = createSlice({
             state.email = payload.email;
             state.profileImage = payload.profileImage
         },
+
         toggleLoading: (state, { payload }) => {
             state.isLoading = payload
         },
+
         logout: (state) => {
             state.name = '';
             state.email = '';
             state.profileImage = ''
         }
     },
+
     extraReducers: (builder) => {
         builder.addCase(createUser.pending, (state) => {
             state.isLoading = true;
@@ -124,7 +124,6 @@ const usersSlice = createSlice({
                 state.email = payload.email;
                 state.profileImage = payload.profileImage;
                 state.error = ''
-                console.log(payload.profileImage)
             }).addCase(googleLogin.rejected, (state, action) => {
                 state.isLoading = false;
                 state.isError = false;

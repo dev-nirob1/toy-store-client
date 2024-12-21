@@ -1,11 +1,13 @@
+import Loading from "../../../Components/Loading/Loading";
 import ToyCard from "../../../Components/Shared/ToyCard";
 import Title from "../../../Components/Title";
 import { useGetFeaturesToysQuery } from "../../../redux/features/toysApi";
 
 const FeaturedProduct = () => {
     const { data: toys, isLoading, } = useGetFeaturesToysQuery()
+    
     if (isLoading) {
-        return <p>loading...</p>
+        return <Loading />
     }
     return (
         <section className="px-3 container mx-auto">

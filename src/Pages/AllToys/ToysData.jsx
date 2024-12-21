@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 
 const ToysData = ({ toys, index }) => {
     const { _id, toyName, email, name, SubCategory, price, quantity } = toys;
-    console.log(toys, index)
     return (
         <tbody>
             <tr className="border-b">

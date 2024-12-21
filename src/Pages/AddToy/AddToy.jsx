@@ -13,8 +13,6 @@ const AddToy = () => {
     const [error, setError] = useState('')
     const [setToy, { isLoading, data }] = useSetToyMutation()
 
-    console.log(data)
-
     const handleAddToy = event => {
         event.preventDefault()
         const form = event.target;
@@ -81,7 +79,6 @@ const AddToy = () => {
                                 <select name="category" className="w-full p-2 border rounded">
                                     <option value="Cars">Cars</option>
                                     <option value="Learn & Play">Learn & Play</option>
-                                    <option value="Cuddles">Cuddles</option>
                                     <option value="Dolls">Dolls</option>
                                 </select>
                             </div>

@@ -39,12 +39,15 @@ export const toysApi = createApi({
                 method: 'DELETE'
             }),
             invalidatesTags: ['toys']
+        }),
+        updateToy: builder.mutation({
+            query: ({id, data}) => ({
+                url: `/update/${id}`,
+                method: 'PATCH',
+                body: data
+            }),
+            invalidatesTags: ['toys']
         })
-        // updateToy: builder.mutation({
-        //     query: (toy) => ({
-        //         url: '/'
-        //     })
-        // })
     })
 })
-export const { useGetToysQuery, useGetSingleToyQuery, useSetToyMutation, useGetUsersToyQuery, useDeleteToyMutation, useGetCategoryToyQuery, useGetFeaturesToysQuery } = toysApi;
+export const { useGetToysQuery, useGetSingleToyQuery, useSetToyMutation, useGetUsersToyQuery, useDeleteToyMutation, useGetCategoryToyQuery, useGetFeaturesToysQuery, useUpdateToyMutation } = toysApi;
